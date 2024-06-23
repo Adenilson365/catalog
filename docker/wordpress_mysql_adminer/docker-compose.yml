@@ -8,7 +8,7 @@ networks:
 
 services:
   wordpress:
-    image: wp-image  
+    image: wordpress  
     container_name: wp
     ports:
       - "80:80"  
