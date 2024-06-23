@@ -1,0 +1,41 @@
+apiVersion: v1 
+kind: Service
+metadata:
+  name: wp-svc
+spec:
+  selector:
+    app: wp
+  ports:
+    - name: http-wp
+      port: 80
+      nodePort: 30100
+      targetPort: 80
+  type: NodePort
+
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: db-svc
+spec:
+  selector:
+    app: db
+  ports:
+    - name: db-port
+      port: 3306
+  type: ClusterIP
+
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: adminer-svc
+spec:
+  selector:
+    app: adminer
+  ports:
+    - name: adminer
+      port: 8080
+      nodePort: 30101
+      targetPort: 8080
+  type: NodePort

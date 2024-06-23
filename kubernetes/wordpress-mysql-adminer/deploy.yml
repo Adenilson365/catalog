@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wp-deploy
+spec:
+  selector:
+    matchLabels:
+      app: wp
+  template:
+    metadata:
+      labels:
+        app: wp
+    spec:
+      containers:
+      - name: wp-cont
+        image: wordpress:6.5.4
+        env:
+          - name: WORDPRESS_DB_HOST
+            value: db-svc
+          - name: WORDPRESS_DB_USER
+            value: wp-user
+          - name: WORDPRESS_DB_PASSWORD
+            value: WpPassword
+          - name: WORDPRESS_DB_NAME
+            value: wp-db
+  replicas: 1
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+spec:
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: db-cont
+        image: mysql
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: RootPass
+          - name: MYSQL_USER
+            value: wp-user
+          - name: MYSQL_PASSWORD
+            value: WpPassword
+          - name: MYSQL_DATABASE
+            value: wp-db
+  replicas: 1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminer-deploy
+spec:
+  selector:
+    matchLabels:
+      app: adminer
+  template:
+    metadata:
+      labels:
+        app: adminer
+    spec:
+      containers:
+      - name: ad-cont
+        image: adminer
+  replicas: 1
