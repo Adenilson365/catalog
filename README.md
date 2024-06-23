@@ -1,2 +1,8 @@
-# catalog
-Um catalogo centralizado e de fácil acesso, com alguns ambientes de estudos prontos em Docker, K8s, Terraform 
+# Catálogo 
+Um catalogo centralizado e de fácil acesso, com alguns ambientes de estudos prontos em:
+- Terraform
+- Docker
+- Kubernetes
+- CLoud
+
+### Cada diretório representa uma tecnologia com seu próprio Readme
