@@ -3,6 +3,7 @@ Um catalogo centralizado e de fácil acesso, com alguns ambientes de estudos pro
 - Terraform
 - Docker
 - Kubernetes
-- CLoud
+- Cloud
+
 
 ### Cada diretório representa uma tecnologia com seu próprio Readme

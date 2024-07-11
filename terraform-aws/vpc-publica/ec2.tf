@@ -6,5 +6,4 @@ resource "aws_instance" "name" {
   volume_tags            = var.default_tags
   vpc_security_group_ids = [aws_security_group.sg-001.id]
   key_name               = var.key-name
-
 }
